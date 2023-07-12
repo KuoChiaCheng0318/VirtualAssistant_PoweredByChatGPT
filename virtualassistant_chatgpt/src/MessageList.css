@@ -1,0 +1,79 @@
+.chat_prevmessage{
+    width: 60vw;
+}
+.chat-message {
+    display: flex;
+    margin: 5px 15px;
+}
+  
+.chat-message__user-input{
+    display: flex;
+    margin: 5px 15px;
+    flex-direction: row-reverse;
+}
+
+.chat-message__user-input .chat__txt {
+    background-color: #0084ff;
+    margin: 5px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: white;
+}
+
+.chat-message .chat__txt {
+    background-color: #e4e6eb;
+    margin: 5px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: black;
+    /* text-align: left; */
+}
+
+
+.chat__inputtxt{
+    background-color: #f0f2f5;
+    margin: 5px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: black;
+    width: 90px;
+    border: none;
+    font-size: 15px;
+}
+
+.chat__time{
+    border: none;
+    font-size: 8px;
+    background-color: #ffffff;
+    align-self: flex-end;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    text-decoration: underline;
+    color: gray;
+}
+
+.chat_editdeleteupdatecancel{
+    border: none;
+    font-size: 11px;
+    background-color: #ffffff;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    text-decoration: underline;
+    color: gray;
+}
+
+.chat_editdeleteupdatecancel:hover{
+    background-color: #f0f0f0;
+}
+
+
+@media (max-width: 768px) {
+    .chat__inputtxt{
+        width: 30px;
+    }
+    .chat_prevmessage{
+        width: 90vw;
+    }
+}

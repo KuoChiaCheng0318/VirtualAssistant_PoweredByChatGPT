@@ -1,0 +1,78 @@
+.login{
+    text-align: center;
+}
+
+.virtual_assistantImg{
+    width: 50vh;
+    margin-bottom: 30px;
+}
+
+.buttons_login{
+    position: relative;
+    left: 18vw;
+    margin-bottom: 30px;
+}
+
+.login_button{
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #ffffff;
+    cursor: pointer;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    border-color: #0084ff;
+    /* text-decoration: underline; */
+    color: #0084ff;
+    display: flex;
+    align-items: center;
+    width: 50vh;
+    justify-content: center;
+    padding: 8px;
+}
+
+.googleicon{
+    width: 30px;
+    margin-right: 10px;
+}
+
+.login_button:hover{
+    background-color: #f0f0f0;
+}
+
+
+.buttons_logout {
+    position: fixed;
+    bottom: 0px;
+    left: 20vw;
+    width: 55px;
+    height: 50px;
+    z-index: 99999;
+}
+
+.logout_button{
+    border: none;
+    font-size: 11px;
+    background-color: #ffffff;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    /* text-decoration: underline; */
+    color: gray;
+    display: flex;
+}
+
+.logout_button:hover{
+    background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+    .buttons_logout{
+        position: fixed;
+        bottom: 0px;
+        left: 60px;
+        width: 55px;
+        height: 50px;
+        z-index: 99999;
+    }
+}

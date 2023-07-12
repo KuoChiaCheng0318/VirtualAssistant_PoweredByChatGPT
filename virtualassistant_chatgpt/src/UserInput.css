@@ -1,0 +1,21 @@
+.input-container{
+    display: flex;
+}
+
+
+.chat__sendicon{
+    border: none;
+    border-radius: 40%;
+    padding: 5px;
+    background-color: #ffffff;
+    font-size: 18px;
+    color: #0084ff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat__sendicon:hover{
+    background-color: #f0f0f0;
+}
