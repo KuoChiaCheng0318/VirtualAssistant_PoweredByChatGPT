@@ -10,6 +10,7 @@ import {
   setSignOutState,
   selectUserEmail,
 } from "./userSlice";
+import { setSpeaking } from "./speakingSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import MicIcon from '@mui/icons-material/Mic';
@@ -29,6 +30,18 @@ const Microphone = () => {
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
   const userEmail = useSelector(selectUserEmail);
+  const dispatch = useDispatch();
+  const speaking = useSelector((state) => state.speaking);
+
+  useEffect(() => {
+    if (speaking) {
+      console.log("speaking")
+      stopListening();
+    } else {
+      console.log("not speaking")
+      startListening();
+    }
+  }, [speaking]);
 
   useEffect(() => {
     if (transcript) {
@@ -55,6 +68,14 @@ const Microphone = () => {
     clearTimeout(timeoutRef.current);
   };
 
+  const startListening = () => {
+    setIsListening(true);
+    microphoneRef.current.classList.add("listening");
+    SpeechRecognition.startListening({
+      continuous: true,
+    });
+  };
+
   const saveTranscript = async (transcriptData) => {
     try {
       const timestamp = firebase.firestore.Timestamp.now();
@@ -64,7 +85,7 @@ const Microphone = () => {
         userName,
         userEmail,
       });
-      stopListening();
+      // stopListening();
     } catch (error) {
       console.error("Error saving transcript: ", error);
     }
@@ -101,9 +122,11 @@ const Microphone = () => {
       }));
       setTranscriptList(transcripts);
     });
+    // Dispatch action to update speaking state
+    dispatch(setSpeaking(speaking));
 
     return () => unsubscribe();
-  }, []);
+  }, [speaking]);
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     return (

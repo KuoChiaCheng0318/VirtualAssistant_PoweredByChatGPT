@@ -10,15 +10,18 @@ import {
     setSignOutState,
     selectUserEmail,
   } from "./userSlice";
+import { setSpeaking } from "./speakingSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSpeechSynthesis } from "react-speech-kit";
+import "./Openai2.css"
 
 const OpenaiResponse = () => {
   const [messages, setMessages] = useState([]);
   const userName = useSelector(selectUserName);
   const userEmail = useSelector(selectUserEmail);
-  const { speak, voices } = useSpeechSynthesis();
+  const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis();
+  const dispatch = useDispatch();
 
   useEffect(() => {
 
@@ -49,12 +52,12 @@ const OpenaiResponse = () => {
       // console.log(messages)
       const messagesHistory = messages
         .map(({ role, content }) => ({ role, content }));
-      messagesHistory.unshift({ role: "system", content: "This system is a virtual assistant called Amy. This virtual assistant called Amy is always energetic and helpful." });
+      messagesHistory.unshift({ role: "system", content: "This system is a personal assistant called Amy. This personal assistant called Amy is always energetic and helpful." });
       console.log(messagesHistory)
       const { Configuration, OpenAIApi } = require("openai");
 
       const configuration = new Configuration({
-          apiKey: "XXXXXXX" //replace XXXXXXX with your own OpenAI api key
+          apiKey: "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"
       });
       const openai = new OpenAIApi(configuration);
 
@@ -67,6 +70,7 @@ const OpenaiResponse = () => {
       {/* female voice: 2,7,8, */}
       {/* 16--japanese girl */}
       speak({ text: chatCompletion.data.choices[0].message.content, voice: voices[2]})
+      
       const timestamp = firebase.firestore.Timestamp.now();
       const newMessage = {
         content: chatCompletion.data.choices[0].message.content,
@@ -83,11 +87,30 @@ const OpenaiResponse = () => {
     }
   };
 
-//   return (
-//     <div>
-//       <button onClick={generateAIResponse}>Generate AI Response</button>
-//     </div>
-//   );
+  useEffect(() => {
+    if (speaking) {
+      // console.log("speaking")
+      dispatch(setSpeaking(true));
+    } else {
+      // console.log("not speaking")
+      dispatch(setSpeaking(false));
+    }
+  }, [speaking]);
+
+  const handleCancelSpeaking = () => {
+    cancel(); // Stop speaking and set the speaking state to false
+    dispatch(setSpeaking(false));
+  };
+
+  return (
+    <div>
+      <div class="image-container" onClick={handleCancelSpeaking}>
+        {speaking && <img className="OL_IMG_Q" src="OL_IMG_Q3.png" alt="Speaking" />}
+        {/* <img className="OL_IMG_Q" src="OL_IMG_Q.png" alt="Speaking" /> */}
+      </div>
+      {/* <button onClick={generateAIResponse}>Generate AI Response</button> */}
+    </div>
+  );
 };
 
 export default OpenaiResponse;

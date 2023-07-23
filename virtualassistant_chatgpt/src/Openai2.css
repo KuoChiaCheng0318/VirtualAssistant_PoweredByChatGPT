@@ -1,0 +1,40 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  } */
+  
+  .image-container {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 500px; /* Adjust this value based on your image size */
+    height: 1000px; /* Adjust this value based on your image size */
+  }
+  
+  .OL_IMG_Q {
+    position: absolute;
+    bottom: -100%;
+    right: 0; /* Start position, the image is hidden off-screen to the right */
+    width: 100%; /* Adjust the width to match your image size */
+    animation: slideIn 0.75s forwards; /* Duration and timing function of the animation */
+  }
+  
+  @keyframes slideIn {
+    to {
+      bottom: 0; /* End position, the image slides in from right to left */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .image-container {
+      width: 400px; /* Adjust this value based on your image size */
+      height: 800px; /* Adjust this value based on your image size */
+    }
+
+  }

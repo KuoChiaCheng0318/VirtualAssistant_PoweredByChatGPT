@@ -63,7 +63,7 @@ const Login = (props) => {
       {!userName ? (
         <div className='login'>
           <h1>Virtual Assistant Powered by OpenAI gpt-3.5-turbo</h1>
-          <img className="virtual_assistantImg" src="images.png" />
+          <img className="virtual_assistantImg" src="OL_IMG_Q.png" />
           <div className='buttons_login'>
               <button onClick={handleAuth} className='login_button'>
                 <img className='googleicon' src="5847f9cbcef1014c0b5e48c8.png" />
