@@ -7,19 +7,20 @@ import 'firebase/compat/storage';
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCwrlJs566doNhQ90GvVSF0xFV6npzpAxs",
+  apiKey: "AIzaSyAk5ccMnCQdD3CAfnXWMcHXK-mh1s_vj3E",
 
-  authDomain: "virtualassistantreact20230606.firebaseapp.com",
+  authDomain: "virtualassistantchatgpt.firebaseapp.com",
 
-  projectId: "virtualassistantreact20230606",
+  projectId: "virtualassistantchatgpt",
 
-  storageBucket: "virtualassistantreact20230606.appspot.com",
+  storageBucket: "virtualassistantchatgpt.appspot.com",
 
-  messagingSenderId: "833666269146",
+  messagingSenderId: "849770296706",
 
-  appId: "1:833666269146:web:8612ab52816aa78d71cae3",
+  appId: "1:849770296706:web:98f254463ac24015b14b9b",
 
-  measurementId: "G-23W0S3DJEV"
+  measurementId: "G-K136P271Z2"
+
 
   
 };
