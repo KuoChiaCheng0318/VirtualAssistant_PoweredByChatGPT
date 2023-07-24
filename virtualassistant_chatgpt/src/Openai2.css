@@ -13,8 +13,9 @@
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 500px; /* Adjust this value based on your image size */
-    height: 1000px; /* Adjust this value based on your image size */
+    width: 400px; /* Adjust this value based on your image size */
+    height: 800px; /* Adjust this value based on your image size */
+    cursor: pointer;
   }
   
   .OL_IMG_Q {
@@ -33,8 +34,12 @@
 
   @media (max-width: 768px) {
     .image-container {
-      width: 400px; /* Adjust this value based on your image size */
-      height: 800px; /* Adjust this value based on your image size */
+      width: 300px; /* Adjust this value based on your image size */
+      height: 600px; /* Adjust this value based on your image size */
     }
 
+  }
+
+  .OL_IMG_Q:hover{
+    transform: scale(1.1);
   }

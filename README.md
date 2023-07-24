@@ -3,7 +3,7 @@
  <br />Also implemented speech-to-text and text-to-speech functions.
  
  Demo video  <br />
- Computer: https://www.youtube.com/watch?v=W5M6YEAvaEU<br />
+ Computer: https://youtu.be/sIhRKKxfD0Y<br />
  Mobile: https://www.youtube.com/watch?v=tpiKbD4STrA<br />
  Demo website: https://virtualassistantchatgpt.web.app <br />
  (Supported system: Google Chrome browser for computers and Google Chrome App for Android phones.)
