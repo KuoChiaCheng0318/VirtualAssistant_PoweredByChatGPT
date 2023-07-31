@@ -62,8 +62,8 @@ const Login = (props) => {
     <div>
       {!userName ? (
         <div className='login'>
-          <h1>Virtual Assistant Powered by OpenAI gpt-3.5-turbo</h1>
-          <img className="virtual_assistantImg" src="OL_IMG_Q4.gif" />
+          <h1>Virtual Assistant Powered by ChatGPT</h1>
+          <img className="virtual_assistantImg" src="OL_IMG_Q6.gif" />
           <div className='buttons_login'>
               <button onClick={handleAuth} className='login_button'>
                 <img className='googleicon' src="5847f9cbcef1014c0b5e48c8.png" />
@@ -72,11 +72,12 @@ const Login = (props) => {
           </div>
         </div>
       ):(
-        <div className='logout'>
-          <div className='buttons_logout'>
-              <button onClick={handleAuth} className='logout_button'><LogoutIcon /> Log out</button>
-          </div>
-        </div>
+        // <div className='logout'>
+        //   <div className='buttons_logout'>
+        //       <button onClick={handleAuth} className='logout_button'><LogoutIcon /> Log out</button>
+        //   </div>
+        // </div>
+        <></>
       )}
     </div>
   )

@@ -12,7 +12,7 @@ function App() {
             <Login />
           </Route>
           <Route path="/home">
-            <Login />
+            {/* <Login /> */}
             <Microphone />
             <OpenaiResponse />
           </Route>

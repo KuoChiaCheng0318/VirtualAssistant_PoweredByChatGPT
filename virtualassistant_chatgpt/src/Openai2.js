@@ -105,7 +105,7 @@ const OpenaiResponse = () => {
   return (
     <div>
       <div class="image-container" onClick={handleCancelSpeaking}>
-        {speaking && <img className="OL_IMG_Q" src="OL_IMG_Q5.gif" alt="Speaking" />}
+        {speaking && <img className="OL_IMG_Q" src="OL_IMG_Q6.gif" alt="Speaking" />}
         {/* <img className="OL_IMG_Q" src="OL_IMG_Q.png" alt="Speaking" /> */}
       </div>
       {/* <button onClick={generateAIResponse}>Generate AI Response</button> */}

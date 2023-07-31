@@ -13,9 +13,10 @@
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 400px; /* Adjust this value based on your image size */
-    height: 800px; /* Adjust this value based on your image size */
+    width: 27vw; /* Adjust this value based on your image size */
+    height: 54vw; /* Adjust this value based on your image size */
     cursor: pointer;
+    margin: 3vw;
   }
   
   .OL_IMG_Q {
@@ -28,14 +29,27 @@
   
   @keyframes slideIn {
     to {
-      bottom: 0; /* End position, the image slides in from right to left */
+      bottom: -8vh; /* End position, the image slides in from right to left */
     }
   }
 
   @media (max-width: 768px) {
     .image-container {
-      width: 300px; /* Adjust this value based on your image size */
-      height: 600px; /* Adjust this value based on your image size */
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 50vw; /* Adjust this value based on your image size */
+      height: 50vw; /* Adjust this value based on your image size */
+      cursor: pointer;
+    }
+    
+    .OL_IMG_Q {
+      position: absolute;
+      bottom: -100%;
+      right: 0; /* Start position, the image is hidden off-screen to the right */
+      width: 75%; /* Adjust the width to match your image size */
+      animation: slideIn 0.75s forwards; /* Duration and timing function of the animation */
     }
 
   }
