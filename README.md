@@ -4,6 +4,6 @@
  
  Demo video  <br />
  Computer: https://www.youtube.com/watch?v=sIhRKKxfD0Y<br />
- Mobile: https://www.youtube.com/watch?v=jExnZvw7W54<br />
+ Mobile: https://www.youtube.com/watch?v=4ib6-GSMP80<br />
  Demo website: https://virtualassistantchatgpt.web.app <br />
  (Supported system: Google Chrome browser for computers and Google Chrome App for Android phones.)
