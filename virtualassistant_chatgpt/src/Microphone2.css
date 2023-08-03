@@ -53,9 +53,9 @@
 }
 
 .microphone_Input{
-    flex: 1; /* Take up remaining space */
+    flex: 1; 
     display: flex;
-    justify-content: flex-end; /* Align content to the right */
+    justify-content: flex-end; 
 }
 
 .MessageList{
@@ -67,7 +67,7 @@
 }
 
 .MessageList::-webkit-scrollbar {
-    width: 5px; /* Adjust the width as needed */
+    width: 5px; 
 }
   
 .MessageList::-webkit-scrollbar-track {
@@ -75,12 +75,12 @@
 }
 
 .MessageList::-webkit-scrollbar-thumb {
-    background-color: #888888; /* Adjust the color as needed */
-    border-radius: 5px; /* Adjust the border radius as needed */
+    background-color: #888888; 
+    border-radius: 5px; 
 }
 
 .MessageList::-webkit-scrollbar-thumb:hover {
-    background-color: #555555; /* Adjust the hover color as needed */
+    background-color: #555555; 
 }
 
 .microphone-container{

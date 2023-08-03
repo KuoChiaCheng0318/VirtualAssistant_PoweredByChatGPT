@@ -23,68 +23,67 @@ import UserInput from "./UserInput";
 import MessageList from "./MessageList";
 
 const Microphone = () => {
-  // Hook to use speech recognition functionality
   const { transcript, resetTranscript } = useSpeechRecognition();
-  const [isListening, setIsListening] = useState(false); // State to track if the microphone is listening
-  const [transcriptList, setTranscriptList] = useState([]); // State to store transcripts
-  const microphoneRef = useRef(null); // Ref to access the microphone element in the DOM
-  const timeoutRef = useRef(null); // Ref to manage a timeout for saving transcripts
-  const userName = useSelector(selectUserName); // Select the user's name from Redux store
-  const userPhoto = useSelector(selectUserPhoto); // Select the user's photo from Redux store
-  const userEmail = useSelector(selectUserEmail); // Select the user's email from Redux store
-  const dispatch = useDispatch(); // Access the dispatch function for Redux actions
-  const speaking = useSelector((state) => state.speaking); // Select speaking state from Redux store
-  const history = useHistory(); // Access the history object for routing
+  const [isListening, setIsListening] = useState(false); 
+  const [transcriptList, setTranscriptList] = useState([]);
+  const microphoneRef = useRef(null); 
+  const timeoutRef = useRef(null); 
+  const userName = useSelector(selectUserName); 
+  const userPhoto = useSelector(selectUserPhoto); 
+  const userEmail = useSelector(selectUserEmail); 
+  const dispatch = useDispatch(); 
+  const speaking = useSelector((state) => state.speaking);
+  const history = useHistory(); 
 
-  // Effect to handle the speech recognition when the speaking state changes
+  
   useEffect(() => {
     if (speaking) {
       console.log("system speaking");
-      stopListening(); // Stop listening if the system is speaking
+      stopListening(); 
     } else {
       console.log("system not speaking");
-      startListening(); // Start listening if the system is not speaking
+      startListening(); 
     }
   }, [speaking]);
 
-  // Effect to save transcripts when the speech recognition captures a transcript
+  
   useEffect(() => {
     if (transcript) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => {
-        saveTranscript({ role: "user", content: transcript }); // Save the transcript to the database
-        resetTranscript(); // Reset the transcript after saving
-      }, 2000); // Wait for 2 seconds before saving to avoid continuous saving for every partial transcript
+        saveTranscript({ role: "user", content: transcript });
+        resetTranscript();
+      }, 2000); 
     }
   }, [transcript, resetTranscript]);
 
-  // Function to start listening to the microphone
+ 
   const handleListening = () => {
     setIsListening(true);
     microphoneRef.current.classList.add("listening");
     SpeechRecognition.startListening({
-      continuous: true, // Keep listening until manually stopped
+      continuous: true, 
     });
   };
 
-  // Function to stop listening to the microphone
+ 
   const stopListening = () => {
     setIsListening(false);
     microphoneRef.current.classList.remove("listening");
     SpeechRecognition.stopListening();
-    clearTimeout(timeoutRef.current); // Clear any ongoing timeouts
+    clearTimeout(timeoutRef.current); 
   };
 
-  // Function to start listening again after it's stopped
+  
   const startListening = () => {
     setIsListening(true);
     microphoneRef.current.classList.add("listening");
     SpeechRecognition.startListening({
-      continuous: true, // Keep listening until manually stopped
+      continuous: true,
     });
   };
 
-  // Function to save a transcript to the Firebase database
+  
   const saveTranscript = async (transcriptData) => {
     try {
       const timestamp = firebase.firestore.Timestamp.now();
@@ -99,7 +98,7 @@ const Microphone = () => {
     }
   };
 
-  // Function to delete a transcript from the Firebase database
+  
   const deleteTranscript = async (transcriptId) => {
     try {
       await db.collection("chat").doc(transcriptId).delete();
@@ -108,7 +107,7 @@ const Microphone = () => {
     }
   };
 
-  // Function to handle clearing all the user's messages from the database
+  
   const handleClearAll = async () => {
     const confirmClear = window.confirm("Are you sure you want to clear all your messages in the database?");
     if (confirmClear) {
@@ -123,7 +122,7 @@ const Microphone = () => {
     }
   };
 
-  // Effect to set up the listener for the transcripts in the Firebase database
+ 
   useEffect(() => {
     const unsubscribe = db.collection("chat").orderBy('timestamp').onSnapshot((snapshot) => {
       const transcripts = snapshot.docs.map((doc) => ({
@@ -132,13 +131,13 @@ const Microphone = () => {
       }));
       setTranscriptList(transcripts);
     });
-    // Dispatch action to update speaking state
+    
     dispatch(setSpeaking(speaking));
 
-    return () => unsubscribe(); // Cleanup function to unsubscribe from the Firebase listener
+    return () => unsubscribe(); 
   }, [speaking]);
 
-  // If the user's browser doesn't support speech recognition, display a message
+  
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     return (
       <div className="microphone-container">
@@ -147,7 +146,7 @@ const Microphone = () => {
     );
   }
 
-  // Function to handle user authentication (sign-out)
+  
   const handleAuth = () => {
     if (userName) {
       auth
@@ -160,7 +159,7 @@ const Microphone = () => {
     }
   };
 
-  // Render the microphone and chat interface components
+  
   return (
     <div className="microphone-wrapper">
       <div className="user_InfoInput">

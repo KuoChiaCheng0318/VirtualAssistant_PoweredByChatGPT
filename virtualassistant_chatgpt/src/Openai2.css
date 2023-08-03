@@ -1,20 +1,10 @@
-/* body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
-  } */
-  
   .image-container {
     overflow: hidden;
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 27vw; /* Adjust this value based on your image size */
-    height: 54vw; /* Adjust this value based on your image size */
+    width: 27vw; 
+    height: 54vw; 
     cursor: pointer;
     margin: 3vw;
   }
@@ -22,14 +12,14 @@
   .OL_IMG_Q {
     position: absolute;
     bottom: -100%;
-    right: 0; /* Start position, the image is hidden off-screen to the right */
-    width: 100%; /* Adjust the width to match your image size */
-    animation: slideIn 0.75s forwards; /* Duration and timing function of the animation */
+    right: 0; 
+    width: 100%;
+    animation: slideIn 0.75s forwards; 
   }
   
   @keyframes slideIn {
     to {
-      bottom: -8vh; /* End position, the image slides in from right to left */
+      bottom: -8vh; 
     }
   }
 
@@ -39,17 +29,17 @@
       position: fixed;
       top: 0;
       right: 0;
-      width: 50vw; /* Adjust this value based on your image size */
-      height: 50vw; /* Adjust this value based on your image size */
+      width: 50vw; 
+      height: 50vw; 
       cursor: pointer;
     }
     
     .OL_IMG_Q {
       position: absolute;
       bottom: -100%;
-      right: 0; /* Start position, the image is hidden off-screen to the right */
-      width: 75%; /* Adjust the width to match your image size */
-      animation: slideIn 0.75s forwards; /* Duration and timing function of the animation */
+      right: 0; 
+      width: 75%; 
+      animation: slideIn 0.75s forwards; 
     }
 
   }

@@ -35,7 +35,6 @@ const OpenaiResponse = () => {
         );
       setMessages(messagesData);
     });
-    // Clean up the listener when the component unmounts
     return () => unsubscribe();
   }, []);
 
@@ -80,7 +79,7 @@ const OpenaiResponse = () => {
         userEmail: userEmail,
       };
 
-      // // Save AI response to Firestore
+      
       await firebase.firestore().collection("chat").add(newMessage);
     } catch (error) {
       console.error("Error generating AI response: ", error);
@@ -98,7 +97,7 @@ const OpenaiResponse = () => {
   }, [speaking]);
 
   const handleCancelSpeaking = () => {
-    cancel(); // Stop speaking and set the speaking state to false
+    cancel(); 
     dispatch(setSpeaking(false));
   };
 
