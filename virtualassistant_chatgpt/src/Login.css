@@ -1,4 +1,9 @@
-.login {
+.login{
+  display: flex;
+  background-color: #ffffff;
+}
+
+  .Login_left {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,9 +11,31 @@
     height: 100vh;
     text-align: center;
     margin-top: 10px;
-    background-color: #ffffff;
-    width: 95vw;
+    width: 50vw;
   }
+
+  .Login_title{
+    margin-bottom: 15vh;
+    font-size: 4.5vh;
+  }
+
+  .Login_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    margin-top: 10px;
+    width: 50vw;
+  }
+  
+  .Login_Video1, .Login_Video2{
+    width: 30vw;
+    height: 50vh;
+    padding: 5px;
+  }
+
   
   .virtual_assistantImg {
     width: 30vh;
@@ -48,5 +75,17 @@
     .login_button {
       width: 200px;
     }
+    .login{
+      display: inline;
+    }
+    .Login_left{
+      width: 90vw;
+    }
+    .Login_right{
+      width: 90vw;
+    }
+    .Login_Video1, .Login_Video2{
+      width: 100%;
+    }    
   }
   

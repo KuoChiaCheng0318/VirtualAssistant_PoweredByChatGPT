@@ -62,13 +62,31 @@ const Login = (props) => {
     <div>
       {!userName ? (
         <div className='login'>
-          <h1>Virtual Assistant Powered by ChatGPT</h1>
-          <img className="virtual_assistantImg" src="OL_IMG_Q6.gif" />
-          <div className='buttons_login'>
-              <button onClick={handleAuth} className='login_button'>
-                <img className='googleicon' src="5847f9cbcef1014c0b5e48c8.png" />
-                Log In with Google
-              </button>
+          <div className='Login_left'>
+            <h1 className='Login_title'>Virtual Assistant Powered by ChatGPT</h1>
+            <img className="virtual_assistantImg" src="OL_IMG_Q6.gif" />
+            <div className='buttons_login'>
+                <button onClick={handleAuth} className='login_button'>
+                  <img className='googleicon' src="5847f9cbcef1014c0b5e48c8.png" />
+                  Log In with Google
+                </button>
+            </div>
+          </div>
+          <div className='Login_right'>
+            <div className='Login_demo'>
+              <iframe className='Login_Video1'
+              src="https://www.youtube.com/embed/4ib6-GSMP80" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="fullscreen">
+              </iframe>
+              <iframe className='Login_Video2'
+              src="https://www.youtube.com/embed/sIhRKKxfD0Y" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="fullscreen">
+              </iframe>
+            </div>
           </div>
         </div>
       ):(
