@@ -26,7 +26,6 @@ const Microphone = () => {
   const { transcript, resetTranscript } = useSpeechRecognition();
   const [isListening, setIsListening] = useState(false); 
   const [transcriptList, setTranscriptList] = useState([]);
-  const microphoneRef = useRef(null); 
   const timeoutRef = useRef(null); 
   const userName = useSelector(selectUserName); 
   const userPhoto = useSelector(selectUserPhoto); 
@@ -56,28 +55,15 @@ const Microphone = () => {
       }, 2000); 
     }
   }, [transcript, resetTranscript]);
-
- 
-  const handleListening = () => {
-    setIsListening(true);
-    microphoneRef.current.classList.add("listening");
-    SpeechRecognition.startListening({
-      continuous: true, 
-    });
-  };
-
  
   const stopListening = () => {
     setIsListening(false);
-    microphoneRef.current.classList.remove("listening");
     SpeechRecognition.stopListening();
     clearTimeout(timeoutRef.current); 
   };
 
-  
   const startListening = () => {
     setIsListening(true);
-    microphoneRef.current.classList.add("listening");
     SpeechRecognition.startListening({
       continuous: true,
     });
@@ -177,8 +163,7 @@ const Microphone = () => {
             </div>
             <div
               className="microphone-icon-container"
-              ref={microphoneRef}
-              onClick={handleListening}
+              onClick={startListening}
             >
               {isListening ? null : <button className="microphone_btn"><MicIcon /></button>}
             </div>
