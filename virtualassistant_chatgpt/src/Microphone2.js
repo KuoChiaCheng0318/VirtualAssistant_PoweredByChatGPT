@@ -19,6 +19,7 @@ import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import LogoutIcon from '@mui/icons-material/Logout';
 import './Microphone2.css'
 
+import { Avatar } from '@material-ui/core'
 import UserInput from "./UserInput";
 import MessageList from "./MessageList";
 
@@ -151,7 +152,12 @@ const Microphone = () => {
       <div className="user_InfoInput">
         <div className="userInfo">
           <div className='sidebar__dropdown'>
-            <img className='userphoto' src={userPhoto} alt={userName} referrerpolicy="no-referrer"/>
+            {userPhoto? (<img className='userphoto' src={userPhoto} referrerpolicy="no-referrer"/>): 
+            <Avatar className='userphoto'
+            alt={userName}
+            src="/static/images/avatar/1.jpg"
+            />
+            }
             <div className="username">{userName}</div>
             <button className="dropdown-content" onClick={handleAuth}><LogoutIcon /> Log out</button>
           </div>
